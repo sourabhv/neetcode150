@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeetCode 150</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <style>
+        .container {
+            max-width: 800px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container my-4">
+      <h1>NeetCode 150</h1>
+      <h6><em>State stored locally :D</em></h6>
+      <ul class="list-group" id="checkbox-list"></ul>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+
+      const checkboxList = document.getElementById("checkbox-list");
+      for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        const linkName = link[0];
+        const linkUrl = link[1];
+
+        const listItem = document.createElement("li");
+        listItem.classList.add("list-group-item");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = `item${i}`;
+
+        const label = document.createElement("label");
+        label.htmlFor = `item${i}`;
+        label.classList.add("ml-2");
+        label.classList.add("my-0")
+
+        const anchor = document.createElement("a");
+        anchor.href = linkUrl;
+        anchor.target = "_blank";
+        anchor.innerText = linkName;
+
+        label.appendChild(anchor);
+        listItem.appendChild(checkbox);
+        listItem.appendChild(label);
+
+        checkboxList.appendChild(listItem);
+      }
+
+      function handleCheckboxChange() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener("change", () => {
+            const checkboxId = checkbox.id;
+            const isChecked = checkbox.checked;
+            localStorage.setItem(checkboxId, isChecked.toString());
+          });
+
+          // Load the initial state from local storage
+          const storedState = localStorage.getItem(checkbox.id);
+          if (storedState === "true") {
+            checkbox.checked = true;
+          }
+        });
+      }
+
+      // Call the function to initialize checkbox states and event listeners
+      handleCheckboxChange();
+    </script>
+  </body>
+</html>
