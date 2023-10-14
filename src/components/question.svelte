@@ -13,19 +13,20 @@
 	checked.subscribe((value) => browser && localStorage.setItem(key, `${value}`));
 </script>
 
-<li class="flex justify-between gap-x-6 py-3 items-center">
-	<div class="flex flex-row min-w-0 align-center">
-		<input
-			id={question.name}
-			type="checkbox"
-			bind:checked={$checked}
-			name={question.name}
-			class="h-4 w-4 rounded border-gray-300 accent-indigo-500 focus:accent-indigo-600"
-		/>
-		<label for={question.name} class="text-sm my-0 ml-4 font-semibold leading-none text-gray-900">
-			{question.name}
-		</label>
-	</div>
+<li class="flex flex-row items-center py-3 px-3 sm:px-0 items-center">
+	<input
+		id={question.name}
+		type="checkbox"
+		bind:checked={$checked}
+		name={question.name}
+		class="h-4 w-4 rounded border-gray-300 accent-indigo-500 focus:accent-indigo-600"
+	/>
+	<label
+		for={question.name}
+		class="flex-1 text-sm my-0 ml-4 font-semibold leading-none text-gray-900"
+	>
+		{question.name}
+	</label>
 	<button
 		type="submit"
 		on:click={() => window.open(question.link, '_blank')}
