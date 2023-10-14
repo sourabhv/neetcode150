@@ -3,7 +3,7 @@
 </script>
 
 <div class="h-full flex flex-col overflow-hidden">
-	<nav class="bg-gray-800">
+	<nav class="bg-gray-900">
 		<div class="mx-auto max-w-4xl p-4">
 			<div class="flex h-16 items-center justify-between">
 				<div class="flex flex-1 items-center">
@@ -30,7 +30,7 @@
 		</div>
 	</nav>
 
-	<main class="flex flex-1 overflow-x-auto">
+	<main class="flex flex-1 overflow-y-hidden">
 		<slot />
 	</main>
 </div>
