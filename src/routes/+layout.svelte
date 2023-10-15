@@ -1,6 +1,6 @@
 <script>
 	import '../app.css';
-	import logo from '../assets/images/logo.svg'
+	import logo from '../assets/images/logo.svg';
 </script>
 
 <div class="h-full flex flex-col overflow-hidden">
@@ -18,12 +18,13 @@
 					</div>
 					<div class="flex flex-row justify-between items-center leading-none">
 						<div class="flex flex-col items-end">
-							<p class="text-gray-300 text-sm font-bold tracking-tight hidden sm:block">
-								A place to practice your coding skills
-							</p>
-							<p class="text-gray-300 text-[12px] mt-1 color-indigo-400 font-bold tracking-tight">
-								Login
-							</p>
+							<button
+								type="submit"
+								on:click={() => {}}
+								class="rounded-md px-2 py-1.5 text-sm font-semibold text-indigo-500 transition-all hover:bg-gray-700"
+							>
+								LOGIN
+							</button>
 						</div>
 					</div>
 				</div>
