@@ -21,23 +21,26 @@
 <li class="flex flex-row items-center p-3 items-center">
 	<div class="flex flex-1 flex-col items-stretch accordion" class:expand={isOpen}>
 		<div class="flex flex-row items-center" on:click={toggleAccordion}>
-			<svg
-				class="w-2.5 h-2.5 mr-2.5 transition-all"
-				class:-rotate-90={!isOpen}
-				aria-hidden="true"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 10 6"
-			>
-				<path
-					stroke="currentColor"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="stroke-white"
-					stroke-width="2"
-					d="m1 1 4 4 4-4"
-				/>
-			</svg>
+			<div class="mr-2.5 p-2.5 rounded-md hover:bg-gray-700">
+				<svg
+					class="w-2.5 h-2.5 transition-all"
+					class:-rotate-90={!isOpen}
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 10 6"
+				>
+					<path
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="stroke-white"
+						stroke-width="2"
+						d="m1 1 4 4 4-4"
+					/>
+				</svg>
+			</div>
+
 			<input
 				id={question.name}
 				type="checkbox"
