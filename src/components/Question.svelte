@@ -18,7 +18,7 @@
 	}
 </script>
 
-<li class="flex flex-row items-center p-3 items-center">
+<li class="flex flex-col items-stretch p-3">
 	<div class="flex flex-1 flex-col items-stretch accordion" class:expand={isOpen}>
 		<div class="flex flex-row items-center">
 			<div class="mr-2.5 p-2.5 rounded-md hover:bg-gray-700" on:click={toggleAccordion}>
@@ -77,20 +77,21 @@
 		</div>
 
 		<div
-			class="accordion-content w-full transition-all duration-300 ease-in-out"
+			class="accordion-content w-full  rounded-md border-black bg-gray-900 overflow-auto transition-all duration-300 ease-in-out"
 			class:mt-3={isOpen}
+			class:border-2={isOpen}
 		>
 			<pre
-				class="w-full rounded-md p-2 border-2 border-black bg-gray-900 whitespace-pre-wrap text-sm leading-2 text-gray-300">{question.description}</pre>
+				class="w-full p-2 whitespace-pre-wrap text-sm leading-2 text-gray-300">{question.description}</pre>
 		</div>
 	</div>
 </li>
 
 <style>
 	.accordion.expand .accordion-content {
-		max-height: 1000px;
+		max-height: 500px;
 		opacity: 1;
-		overflow: visible;
+		overflow: auto;
 	}
 
 	.accordion:not(.expand) .accordion-content {
