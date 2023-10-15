@@ -82,7 +82,7 @@
 			class:border-2={isOpen}
 		>
 			<pre
-				class="w-full p-2 whitespace-pre-wrap text-sm leading-2 text-gray-300">{question.description}</pre>
+				class="w-full p-4 whitespace-pre-wrap text-sm leading-2 text-gray-300">{question.description}</pre>
 		</div>
 	</div>
 </li>

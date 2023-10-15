@@ -60,7 +60,7 @@ export const questions: Question[] = [
 		name: 'Encode and Decode Strings',
 		link: 'https://www.lintcode.com/problem/659/',
 		description:
-			'Powerful coding training system. LintCode has the most interview problems covering Google, Facebook, Linkedin, Amazon, Microsoft and so on. We provide Chinese and English versions for coders around the world.'
+			'Design an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings.\n\nPlease implement encode and decode\n\nExample 1:\n\nInput: ["lint","code","love","you"]\n\nOutput: ["lint","code","love","you"]\n\nExplanation:\n\n\nOne possible encode method is: "lint:;code:;love:;you"\n\nExample 2:\n\nInput: ["we", "say", ":", "yes"]\n\nOutput: ["we", "say", ":", "yes"]\n\nExplanation:\n\nOne possible encode method is: "we:;say:;:::;yes"'
 	},
 	{
 		id: 9,
@@ -606,7 +606,7 @@ export const questions: Question[] = [
 		name: 'Walls And Gates',
 		link: 'https://www.lintcode.com/problem/663/',
 		description:
-			'Powerful coding training system. LintCode has the most interview problems covering Google, Facebook, Linkedin, Amazon, Microsoft and so on. We provide Chinese and English versions for coders around the world.'
+			'You are given a m x n 2D grid initialized with these three possible values.\n\n-1 - A wall or an obstacle.\n0 - A gate.\nINF - Infinity means an empty room.\n\nWe use the value 2^31 - 1 = 2147483647 to represent INF as you may assume that the distance to a gate is less than 2147483647.\nFill each empty room with the distance to its nearest gate. If it is impossible to reach a Gate, that room should remain filled with INF\n\nExample 1:\n\nInput:\n\n[\n  [2147483647,-1,0,2147483647],\n  [2147483647,2147483647,2147483647,-1],\n  [2147483647,-1,2147483647,-1],\n  [0,-1,2147483647,2147483647]\n]\n\nOutput:\n\n[[3,-1,0,1],[2,2,1,-1],[1,-1,2,-1],[0,-1,3,4]]\n\n\n\nExplanation:\n\nthe 2D grid is:\n\nINF  -1  0  INF\n\nINF INF INF  -1\n\nINF  -1 INF  -1\n\n  0  -1 INF INF\n  \nthe answer is:\n\n  3  -1   0   1\n  \n  2   2   1  -1\n  \n  1  -1   2  -1\n  \n  0  -1   3   4\n  \nExample 2:\n\nInput:\n\n[[0,-1],[2147483647,2147483647]]\n\nOutput:\n\n[[0,-1],[1,2]]'
 	},
 	{
 		id: 87,
