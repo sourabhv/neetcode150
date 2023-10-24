@@ -16,13 +16,22 @@
 	function toggleAccordion() {
 		isOpen = !isOpen;
 	}
+
+	let difficultyColor = '';
+	if (question.difficulty == 'Easy') {
+		difficultyColor = 'bg-emerald-500';
+	} else if (question.difficulty == 'Medium') {
+		difficultyColor = 'bg-yellow-500';
+	} else if (question.difficulty == 'Hard') {
+		difficultyColor = 'bg-orange-500';
+	}
 </script>
 
 <li class="flex flex-col items-stretch p-3">
 	<div class="flex flex-1 flex-col items-stretch accordion" class:expand={isOpen}>
 		<div class="flex flex-row items-center">
 			<div
-				class="mr-2.5 p-2.5 rounded-md hover:bg-gray-700"
+				class="mr-2 p-2.5 rounded-md hover:bg-gray-700"
 				role="button"
 				tabindex="0"
 				on:click={toggleAccordion}
@@ -50,6 +59,8 @@
 					/>
 				</svg>
 			</div>
+
+			<span class={`w-3 h-3 mr-4 rounded-full ${difficultyColor}`} />
 
 			<input
 				id={question.name}
