@@ -1,6 +1,7 @@
 <script>
 	import { writable } from 'svelte/store';
 	import { browser } from '$app/environment';
+	import DifficultyIndicator from './DifficultyIndicator.svelte'
 
 	export let question;
 	export let nofade = false;
@@ -17,14 +18,6 @@
 		isOpen = !isOpen;
 	}
 
-	let difficultyColor = '';
-	if (question.difficulty == 'Easy') {
-		difficultyColor = 'bg-emerald-500';
-	} else if (question.difficulty == 'Medium') {
-		difficultyColor = 'bg-yellow-500';
-	} else if (question.difficulty == 'Hard') {
-		difficultyColor = 'bg-red-500';
-	}
 </script>
 
 <li class="flex flex-col items-stretch p-3">
@@ -64,14 +57,14 @@
 				</svg>
 			</div>
 
-			<span class={`w-3 h-3 mr-4 rounded-full ${difficultyColor}`} />
+			<DifficultyIndicator difficulty={question.difficulty} />
 
 			<input
 				id={question.name}
 				type="checkbox"
 				bind:checked={$checked}
 				name={question.name}
-				class="h-4 w-4 rounded border-gray-300 accent-indigo-500 focus:accent-indigo-600"
+				class="h-4 w-4 ml-4 rounded border-gray-300 accent-indigo-500 focus:accent-indigo-600"
 			/>
 			<label for={question.name} class="text-sm my-0 ml-4 font-semibold leading-2 text-white">
 				{question.name}

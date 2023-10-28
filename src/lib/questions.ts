@@ -1,4 +1,4 @@
-type Question = {
+export type QuestionType = {
 	id: number;
 	name: string;
 	link: string;
@@ -6,7 +6,7 @@ type Question = {
 	difficulty: 'Easy' | 'Medium' | 'Hard';
 };
 
-export const questions: Question[] = [
+export const questions: QuestionType[] = [
 	{
 		id: 1,
 		name: 'Contains Duplicate',
