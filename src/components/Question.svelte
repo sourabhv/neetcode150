@@ -28,7 +28,11 @@
 </script>
 
 <li class="flex flex-col items-stretch p-3">
-	<div class="flex flex-1 flex-col items-stretch accordion" class:expand={isOpen}>
+	<div
+		class="flex flex-1 flex-col items-stretch accordion transition-all"
+		class:expand={isOpen}
+		class:opacity-20={$checked}
+	>
 		<div class="flex flex-row items-center">
 			<div
 				class="mr-2 p-2.5 rounded-md hover:bg-gray-700"
