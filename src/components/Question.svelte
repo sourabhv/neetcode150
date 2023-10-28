@@ -3,9 +3,9 @@
 	import { browser } from '$app/environment';
 
 	export let question;
-	export let id;
+	export let nofade = false;
 
-	const key = `item${id}`;
+	const key = `item${question.id}`;
 
 	const checked = writable(browser && localStorage.getItem(key) === 'true');
 	$: $checked = $checked;
@@ -31,7 +31,7 @@
 	<div
 		class="flex flex-1 flex-col items-stretch accordion transition-all"
 		class:expand={isOpen}
-		class:opacity-20={$checked}
+		class:opacity-30={!nofade && $checked}
 	>
 		<div class="flex flex-row items-center">
 			<div
