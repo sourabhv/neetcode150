@@ -1,24 +1,9 @@
 <script>
 	import logo from '../assets/images/logo.svg';
-	export let visible = false;
-	export let toggleVisible = () => {};
 </script>
 
-<div
-	class="absolute inset-0 items-center justify-center"
-	class:flex={visible}
-	class:hidden={!visible}
->
-	<div
-		class="absolute inset-0 bg-gray-500 opacity-75"
-		on:click={toggleVisible}
-		on:keydown={() => {}}
-		role="button"
-		tabindex="0"
-	/>
-	<div
-		class="bg-gray-700 transform overflow-hidden rounded-lg shadow-xl transition-all sm:w-full sm:max-w-lg"
-	>
+<dialog id="login_modal" class="modal">
+	<div class="modal-box">
 		<div class="flex flex-col items-stretch">
 			<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 				<img
@@ -37,7 +22,7 @@
 						method="POST"
 						on:submit={(e) => {
 							e.preventDefault();
-							toggleVisible();
+							document.getElementById('login_modal')?.close?.();
 						}}
 					>
 						<div>
@@ -83,4 +68,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
+</dialog>

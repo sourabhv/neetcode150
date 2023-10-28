@@ -2,12 +2,6 @@
 	import LoginModal from '../components/LoginModal.svelte';
 	import logo from '../assets/images/logo.svg';
 	import '../app.css';
-
-	let loginModalVisible = false;
-
-	function toggleLoginModal() {
-		loginModalVisible = !loginModalVisible;
-	}
 </script>
 
 <div class="h-full flex flex-col overflow-hidden">
@@ -27,7 +21,7 @@
 						<div class="flex flex-col items-end">
 							<button
 								type="submit"
-								on:click={toggleLoginModal}
+								onclick="login_modal.showModal()"
 								class="rounded-md px-2 py-1.5 text-sm font-semibold text-indigo-500 transition-all hover:bg-gray-700 uppercase"
 							>
 								Sign in
@@ -39,7 +33,7 @@
 		</div>
 	</nav>
 
-	<LoginModal visible={loginModalVisible} toggleVisible={toggleLoginModal} />
+	<LoginModal />
 
 	<main class="flex flex-1 overflow-y-hidden">
 		<slot />

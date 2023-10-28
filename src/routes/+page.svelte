@@ -1,9 +1,6 @@
 <script>
-	import { writable } from 'svelte/store';
 	import Question from '../components/Question.svelte';
 	import { questions } from '../lib/questions';
-
-	const expandedId = writable(null);
 </script>
 
 <div class="flex-1 h-full overflow-y-auto">
