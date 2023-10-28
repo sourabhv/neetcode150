@@ -23,7 +23,7 @@
 	} else if (question.difficulty == 'Medium') {
 		difficultyColor = 'bg-yellow-500';
 	} else if (question.difficulty == 'Hard') {
-		difficultyColor = 'bg-orange-500';
+		difficultyColor = 'bg-red-500';
 	}
 </script>
 
