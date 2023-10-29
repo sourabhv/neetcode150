@@ -20,17 +20,36 @@
 						<h1 class="ml-5 sm:ml-10 text-white text-2xl font-bold tracking-tight">NeatCode</h1>
 					</div>
 					<div class="flex flex-col items-end">
-						<p class="text-sm text-indigo-500">{stats.completedPercent}% Solved</p>
-
-						<div class="flex flex-row justify-between items-center mt-1">
-							<DifficultyIndicator difficulty="Easy" />
-							<p class="ml-2 mr-4 text-sm text-emerald-500">{stats.easyCompleted}/{stats.easy}</p>
-							<DifficultyIndicator difficulty="Medium" />
-							<p class="ml-2 mr-4 text-sm text-yellow-500">
-								{stats.mediumCompleted}/{stats.medium}
-							</p>
-							<DifficultyIndicator difficulty="Hard" />
-							<p class="ml-2 text-sm text-red-500">{stats.hardCompleted}/{stats.hard}</p>
+						<div
+							class="tooltip tooltip-bottom"
+							data-tip={`${stats.completed} done of ${stats.total}`}
+						>
+							<p class="text-sm text-indigo-500">{stats.completedPercent}% Solved</p>
+						</div>
+						<div class="flex flex-row justify-between items-center mt-1 gap-1.5 sm:gap-2">
+							<div
+								class="flex flex-row justify-between items-center tooltip tooltip-bottom"
+								data-tip={`${stats.easyCompleted} done of ${stats.easy}`}
+							>
+								<DifficultyIndicator difficulty="Easy" />
+								<p class="ml-1 sm:ml-2 text-sm text-emerald-500">{stats.easyCompletedPercent}%</p>
+							</div>
+							<div
+								class="flex flex-row justify-between items-center tooltip tooltip-bottom"
+								data-tip={`${stats.mediumCompleted} done of ${stats.medium}`}
+							>
+								<DifficultyIndicator difficulty="Medium" />
+								<p class="ml-1 sm:ml-2 text-sm text-yellow-500">
+									{stats.mediumCompletedPercent}%
+								</p>
+							</div>
+							<div
+								class="flex flex-row justify-between items-center tooltip tooltip-bottom"
+								data-tip={`${stats.hardCompleted} done of ${stats.hard}`}
+							>
+								<DifficultyIndicator difficulty="Hard" />
+								<p class="ml-1 sm:ml-2 text-sm text-red-500">{stats.hardCompletedPercent}%</p>
+							</div>
 						</div>
 						<!-- <button
 							type="submit"
