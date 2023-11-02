@@ -1,9 +1,9 @@
 <script>
 	// import LoginModal from '../components/LoginModal.svelte';
 	import logo from '../assets/images/logo.svg';
-	import '../app.css';
 	import { stats } from '../lib/stats';
 	import DifficultyIndicator from '../components/DifficultyIndicator.svelte';
+	import '../app.css';
 </script>
 
 <div class="h-full flex flex-col overflow-hidden">

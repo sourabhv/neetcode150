@@ -1,27 +1,11 @@
 import { browser } from '$app/environment';
 import { questions } from './questions';
 import type { QuestionType } from './questions';
-const collapse_zones: [number, number][] = [];
 
-const checked = browser
-	? Array.from(
-			{ length: questions.length },
-			(_, i) => localStorage.getItem(`item${i + 1}`) === 'true'
-	  )
-	: [];
-
-let start = -1;
-for (let i = 0; i < checked.length; i++) {
-	if (!checked[i]) {
-		start = -1;
-	} else if (start === -1) {
-		start = i;
-	} else if (i === checked.length - 1 || !checked[i + 1]) {
-		if (i - start + 1 > 1) {
-			collapse_zones.push([start, i]);
-		}
-	}
-}
+const questionsWithStatus = questions.map((q, i) => ({
+	...q,
+	checked: browser ? localStorage.getItem(`item${i + 1}`) === 'true' : false
+}));
 
 export type Section = {
 	type: 'question' | 'collapse';
@@ -29,29 +13,25 @@ export type Section = {
 	items?: QuestionType[];
 };
 
-export const sections = collapse_zones
-	.map(([start, end], idx) => {
-		const prev: Section[] = questions
-			.slice(collapse_zones[idx - 1]?.[1] + 1 ?? 0, start)
-			.map((q) => ({ type: 'question', item: q }));
+function getSections(questions: typeof questionsWithStatus) {
+	const sections: Section[] = [];
+	questions.forEach((q) => {
+		if (!q.checked) {
+			sections.push({ type: 'question', item: q });
+		} else if (sections.length === 0 || sections[sections.length - 1].type === 'question') {
+			sections.push({ type: 'collapse', items: [q] });
+		} else {
+			sections[sections.length - 1].items?.push(q);
+		}
+	});
+	return sections;
+}
 
-		const next: Section[] = (idx === collapse_zones.length - 1 ? questions.slice(end + 1) : []).map(
-			(q) => ({
-				type: 'question',
-				item: q
-			})
-		);
-		const collapsed: Section[] = [{ type: 'collapse', items: questions.slice(start, end + 1) }];
-
-		return prev.concat(collapsed).concat(next);
-	})
-	.flat();
-
-const questionsWithStatus = questions.map((q, i) => ({ ...q, checked: checked[i] }));
+export const sections = getSections(questionsWithStatus);
 
 const total = questions.length;
-const completed = checked.filter(Boolean).length;
-const completedPercent = Math.round((checked.filter(Boolean).length / questions.length) * 100);
+const completed = questionsWithStatus.filter((q) => q.checked).length;
+const completedPercent = Math.round((completed / questions.length) * 100);
 
 const easy = questionsWithStatus.filter((q) => q.difficulty === 'Easy').length;
 const easyCompleted = questionsWithStatus.filter(
