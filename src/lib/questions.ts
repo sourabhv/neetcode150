@@ -1,8 +1,15 @@
+export type SimilarQuestionType = {
+	name: string;
+	link: string;
+	difficulty: 'Easy' | 'Medium' | 'Hard';
+};
+
 export type QuestionType = {
 	id: number;
 	name: string;
 	link: string;
 	description: string;
+	moreChallenges?: SimilarQuestionType[];
 	difficulty: 'Easy' | 'Medium' | 'Hard';
 };
 
@@ -213,15 +220,14 @@ export const questions: QuestionType[] = [
 		link: 'https://leetcode.com/problems/car-fleet/',
 		description:
 			"There are n cars going to the same destination along a one-lane road. The destination is target miles away.\n\nYou are given two integer array position and speed, both of length n, where position[i] is the position of the ith car and speed[i] is the speed of the ith car (in miles per hour).\n\nA car can never pass another car ahead of it, but it can catch up to it and drive bumper to bumper at the same speed. The faster car will slow down to match the slower car's speed. The distance between these two cars is ignored (i.e., they are assumed to have the same position).\n\nA car fleet is some non-empty set of cars driving at the same position and same speed. Note that a single car is also a car fleet.\n\nIf a car catches up to a car fleet right at the destination point, it will still be considered as one car fleet.\n\nReturn the number of car fleets that will arrive at the destination.\n\n\nExample 1:\n\n\nInput: target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]\nOutput: 3\nExplanation:\nThe cars starting at 10 (speed 2) and 8 (speed 4) become a fleet, meeting each other at 12.\nThe car starting at 0 does not catch up to any other car, so it is a fleet by itself.\nThe cars starting at 5 (speed 1) and 3 (speed 3) become a fleet, meeting each other at 6. The fleet moves at speed 1 until it reaches target.\nNote that no other cars meet these fleets before the destination, so the answer is 3.\n\n\nExample 2:\n\n\nInput: target = 10, position = [3], speed = [3]\nOutput: 1\nExplanation: There is only one car, hence there is only one fleet.\n\n\nExample 3:\n\n\nInput: target = 100, position = [0,2,4], speed = [4,2,1]\nOutput: 1\nExplanation:\nThe cars starting at 0 (speed 4) and 2 (speed 2) become a fleet, meeting each other at 4. The fleet moves at speed 2.\nThen, the fleet (speed 2) and the car starting at 4 (speed 1) become one fleet, meeting each other at 6. The fleet moves at speed 1 until it reaches target.\n\n\nConstraints:\n\n * n == position.length == speed.length\n * 1 <= n <= 105\n * 0 < target <= 106\n * 0 <= position[i] < target\n * All the values of position are unique.\n * 0 < speed[i] <= 106",
-		difficulty: 'Medium'
-	},
-	{
-		id: 151,
-		name: 'Car Fleet ||',
-		link: 'https://leetcode.com/problems/car-fleet-ii/',
-		description:
-			'There are n cars traveling at different speeds in the same direction along a one-lane road. You are given an array cars of length n, where cars[i] = [positioni, speedi] represents:\n\n- position i is the distance between the ith car and the beginning of the road in meters. It is guaranteed that positioni < positioni+1.\n- speed i is the initial speed of the ith car in meters per second.\n\nFor simplicity, cars can be considered as points moving along the number line. Two cars collide when they occupy the same position. Once a car collides with another car, they unite and form a single car fleet. The cars in the formed fleet will have the same position and the same speed, which is the initial speed of the slowest car in the fleet.\n\nReturn an array answer, where answer[i] is the time, in seconds, at which the ith car collides with the next car, or -1 if the car does not collide with the next car. Answers within 10-5 of the actual answers are accepted.\n\n\n\nExample 1:\n\nInput: cars = [[1,2],[2,1],[4,3],[7,2]]\nOutput: [1.00000,-1.00000,3.00000,-1.00000]\nExplanation: After exactly one second, the first car will collide with the second car, and form a car fleet with speed 1 m/s. After exactly 3 seconds, the third car will collide with the fourth car, and form a car fleet with speed 2 m/s.\n\nExample 2:\n\nInput: cars = [[3,4],[5,4],[6,3],[9,1]]\nOutput: [2.00000,1.00000,1.50000,-1.00000]',
-		difficulty: 'Hard'
+		difficulty: 'Medium',
+		moreChallenges: [
+			{
+				name: 'Largest Rectangle In Histogram',
+				link: 'https://leetcode.com/problems/largest-rectangle-in-histogram/',
+				difficulty: 'Hard'
+			}
+		]
 	},
 	{
 		id: 27,

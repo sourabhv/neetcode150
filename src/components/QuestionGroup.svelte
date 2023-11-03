@@ -36,7 +36,7 @@
 
 <style>
 	.accordion.expand .accordion-content {
-		max-height: 500px;
+		max-height: 2000px;
 		opacity: 1;
 		overflow: auto;
 	}

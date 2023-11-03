@@ -1,12 +1,13 @@
 <script>
 	import { writable } from 'svelte/store';
 	import { browser } from '$app/environment';
-	import DifficultyIndicator from './DifficultyIndicator.svelte'
+	import DifficultyIndicator from './DifficultyIndicator.svelte';
+	import Challenge from './Challenge.svelte';
 
 	export let question;
 	export let nofade = false;
-
 	const key = `item${question.id}`;
+	const hasChallenges = question.moreChallenges?.length > 0;
 
 	const checked = writable(browser && localStorage.getItem(key) === 'true');
 	$: $checked = $checked;
@@ -17,14 +18,13 @@
 	function toggleAccordion() {
 		isOpen = !isOpen;
 	}
-
 </script>
 
 <li class="flex flex-col items-stretch p-3">
 	<div
 		class="flex flex-1 flex-col items-stretch accordion transition-all"
 		class:expand={isOpen}
-		class:opacity-30={!nofade && $checked}
+		class:opacity-30={!nofade && $checked && !isOpen}
 	>
 		<div class="flex flex-row items-center">
 			<div
@@ -95,19 +95,27 @@
 		</div>
 
 		<div
-			class="accordion-content w-full rounded-md border-slate-900 bg-slate-950/[.3] overflow-auto transition-all duration-300 ease-in-out"
+			class="accordion-content flex flex-col w-full overflow-auto transition-all duration-300 ease-in-out"
 			class:mt-3={isOpen}
-			class:border-2={isOpen}
 		>
+			{#if hasChallenges}
+				<ul class="flex flex-row items-center list-none">
+					{#each question.moreChallenges as challenge (challenge.name)}
+						<Challenge {challenge} />
+					{/each}
+				</ul>
+			{/if}
+
 			<pre
-				class="w-full p-4 whitespace-pre-wrap text-sm leading-2 text-gray-300">{question.description}</pre>
+				class="w-full p-4 rounded-md border-slate-900 bg-slate-950/[.3] whitespace-pre-wrap text-sm leading-2 text-gray-300"
+				class:mt-3={hasChallenges}>{question.description}</pre>
 		</div>
 	</div>
 </li>
 
 <style>
 	.accordion.expand .accordion-content {
-		max-height: 500px;
+		max-height: 1000px;
 		opacity: 1;
 		overflow: auto;
 	}
