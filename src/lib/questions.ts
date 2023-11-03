@@ -216,6 +216,14 @@ export const questions: QuestionType[] = [
 		difficulty: 'Medium'
 	},
 	{
+		id: 151,
+		name: 'Car Fleet ||',
+		link: 'https://leetcode.com/problems/car-fleet-ii/',
+		description:
+			'There are n cars traveling at different speeds in the same direction along a one-lane road. You are given an array cars of length n, where cars[i] = [positioni, speedi] represents:\n\n- position i is the distance between the ith car and the beginning of the road in meters. It is guaranteed that positioni < positioni+1.\n- speed i is the initial speed of the ith car in meters per second.\n\nFor simplicity, cars can be considered as points moving along the number line. Two cars collide when they occupy the same position. Once a car collides with another car, they unite and form a single car fleet. The cars in the formed fleet will have the same position and the same speed, which is the initial speed of the slowest car in the fleet.\n\nReturn an array answer, where answer[i] is the time, in seconds, at which the ith car collides with the next car, or -1 if the car does not collide with the next car. Answers within 10-5 of the actual answers are accepted.\n\n\n\nExample 1:\n\nInput: cars = [[1,2],[2,1],[4,3],[7,2]]\nOutput: [1.00000,-1.00000,3.00000,-1.00000]\nExplanation: After exactly one second, the first car will collide with the second car, and form a car fleet with speed 1 m/s. After exactly 3 seconds, the third car will collide with the fourth car, and form a car fleet with speed 2 m/s.\n\nExample 2:\n\nInput: cars = [[3,4],[5,4],[6,3],[9,1]]\nOutput: [2.00000,1.00000,1.50000,-1.00000]',
+		difficulty: 'Hard'
+	},
+	{
 		id: 27,
 		name: 'Largest Rectangle In Histogram',
 		link: 'https://leetcode.com/problems/largest-rectangle-in-histogram/',
