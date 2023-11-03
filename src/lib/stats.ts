@@ -2,9 +2,9 @@ import { browser } from '$app/environment';
 import { questions } from './questions';
 import type { QuestionType } from './questions';
 
-const questionsWithStatus = questions.map((q, i) => ({
+const questionsWithStatus = questions.map((q) => ({
 	...q,
-	checked: browser ? localStorage.getItem(`item${i + 1}`) === 'true' : false
+	checked: browser ? localStorage.getItem(`item${q.id}`) === 'true' : false
 }));
 
 export type Section = {
