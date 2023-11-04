@@ -223,8 +223,8 @@ export const questions: QuestionType[] = [
 		difficulty: 'Medium',
 		moreChallenges: [
 			{
-				name: 'Largest Rectangle In Histogram',
-				link: 'https://leetcode.com/problems/largest-rectangle-in-histogram/',
+				name: 'Car Fleet II',
+				link: 'https://leetcode.com/problems/car-fleet-ii/',
 				difficulty: 'Hard'
 			}
 		]
