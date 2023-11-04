@@ -7,7 +7,7 @@
 	export let question;
 	export let nofade = false;
 	const key = `item${question.id}`;
-	const hasChallenges = question.moreChallenges?.length > 0;
+	const hasChallenges = question.challenges?.length > 0;
 
 	const checked = writable(browser && localStorage.getItem(key) === 'true');
 	$: $checked = $checked;
@@ -100,7 +100,7 @@
 		>
 			{#if hasChallenges}
 				<ul class="flex flex-row items-center list-none">
-					{#each question.moreChallenges as challenge (challenge.name)}
+					{#each question.challenges as challenge (challenge.name)}
 						<Challenge {challenge} />
 					{/each}
 				</ul>

@@ -9,7 +9,7 @@ export type QuestionType = {
 	name: string;
 	link: string;
 	description: string;
-	moreChallenges?: SimilarQuestionType[];
+	challenges?: SimilarQuestionType[];
 	difficulty: 'Easy' | 'Medium' | 'Hard';
 };
 
@@ -20,7 +20,24 @@ export const questions: QuestionType[] = [
 		link: 'https://leetcode.com/problems/contains-duplicate/',
 		description:
 			'Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.\n\n\nExample 1:\n\nInput: nums = [1,2,3,1]\nOutput: true\n\n\nExample 2:\n\nInput: nums = [1,2,3,4]\nOutput: false\n\n\nExample 3:\n\nInput: nums = [1,1,1,3,3,4,3,2,4,2]\nOutput: true\n\n\nConstraints:\n\n * 1 <= nums.length <= 105\n * -109 <= nums[i] <= 109',
-		difficulty: 'Easy'
+		difficulty: 'Easy',
+		challenges: [
+			{
+				name: 'Contains Duplicate II',
+				link: 'https://leetcode.com/problems/contains-duplicate-ii/',
+				difficulty: 'Easy'
+			},
+			{
+				name: 'Contains Duplicate III',
+				link: 'https://leetcode.com/problems/contains-duplicate-iii/',
+				difficulty: 'Hard'
+			},
+			{
+				name: 'Make Array Zero by Subtracting Equal Amounts',
+				link: 'https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts/',
+				difficulty: 'Easy'
+			}
+		]
 	},
 	{
 		id: 2,
@@ -204,7 +221,19 @@ export const questions: QuestionType[] = [
 		link: 'https://leetcode.com/problems/generate-parentheses/',
 		description:
 			'Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.\n\n\nExample 1:\n\nInput: n = 3\nOutput: ["((()))","(()())","(())()","()(())","()()()"]\n\n\nExample 2:\n\nInput: n = 1\nOutput: ["()"]\n\n\nConstraints:\n\n * 1 <= n <= 8',
-		difficulty: 'Medium'
+		difficulty: 'Medium',
+		challenges: [
+			{
+				name: 'Letter Combinations of a Phone Number',
+				link: 'https://leetcode.com/problems/letter-combinations-of-a-phone-number/',
+				difficulty: 'Medium'
+			},
+			{
+				name: 'Check if a Parentheses String Can Be Valid',
+				link: 'https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/',
+				difficulty: 'Medium'
+			}
+		]
 	},
 	{
 		id: 25,
@@ -221,7 +250,7 @@ export const questions: QuestionType[] = [
 		description:
 			"There are n cars going to the same destination along a one-lane road. The destination is target miles away.\n\nYou are given two integer array position and speed, both of length n, where position[i] is the position of the ith car and speed[i] is the speed of the ith car (in miles per hour).\n\nA car can never pass another car ahead of it, but it can catch up to it and drive bumper to bumper at the same speed. The faster car will slow down to match the slower car's speed. The distance between these two cars is ignored (i.e., they are assumed to have the same position).\n\nA car fleet is some non-empty set of cars driving at the same position and same speed. Note that a single car is also a car fleet.\n\nIf a car catches up to a car fleet right at the destination point, it will still be considered as one car fleet.\n\nReturn the number of car fleets that will arrive at the destination.\n\n\nExample 1:\n\n\nInput: target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]\nOutput: 3\nExplanation:\nThe cars starting at 10 (speed 2) and 8 (speed 4) become a fleet, meeting each other at 12.\nThe car starting at 0 does not catch up to any other car, so it is a fleet by itself.\nThe cars starting at 5 (speed 1) and 3 (speed 3) become a fleet, meeting each other at 6. The fleet moves at speed 1 until it reaches target.\nNote that no other cars meet these fleets before the destination, so the answer is 3.\n\n\nExample 2:\n\n\nInput: target = 10, position = [3], speed = [3]\nOutput: 1\nExplanation: There is only one car, hence there is only one fleet.\n\n\nExample 3:\n\n\nInput: target = 100, position = [0,2,4], speed = [4,2,1]\nOutput: 1\nExplanation:\nThe cars starting at 0 (speed 4) and 2 (speed 2) become a fleet, meeting each other at 4. The fleet moves at speed 2.\nThen, the fleet (speed 2) and the car starting at 4 (speed 1) become one fleet, meeting each other at 6. The fleet moves at speed 1 until it reaches target.\n\n\nConstraints:\n\n * n == position.length == speed.length\n * 1 <= n <= 105\n * 0 < target <= 106\n * 0 <= position[i] < target\n * All the values of position are unique.\n * 0 < speed[i] <= 106",
 		difficulty: 'Medium',
-		moreChallenges: [
+		challenges: [
 			{
 				name: 'Car Fleet II',
 				link: 'https://leetcode.com/problems/car-fleet-ii/',
@@ -1219,6 +1248,22 @@ export const questions: QuestionType[] = [
 		link: 'https://leetcode.com/problems/reverse-integer/',
 		description:
 			'Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.\n\nAssume the environment does not allow you to store 64-bit integers (signed or unsigned).\n\n\nExample 1:\n\n\nInput: x = 123\nOutput: 321\n\n\nExample 2:\n\n\nInput: x = -123\nOutput: -321\n\n\nExample 3:\n\n\nInput: x = 120\nOutput: 21\n\n\nConstraints:\n\n * -231 <= x <= 231 - 1',
+		difficulty: 'Medium'
+	},
+	{
+		id: 151,
+		name: 'Number of Digit One',
+		link: 'https://leetcode.com/problems/number-of-digit-one/',
+		description:
+			'Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.\n\n \n\nExample 1:\n\nInput: n = 13\nOutput: 6\n\nExample 2:\n\nInput: n = 0\nOutput: 0',
+		difficulty: 'Hard'
+	},
+	{
+		id: 152,
+		name: 'Nth Highest Salary',
+		link: 'https://leetcode.com/problems/nth-highest-salary/',
+		description:
+			'Write a solution to find the nth highest salary from the Employee table. If there is no nth highest salary, return null.\n\nThe result format is in the following example.',
 		difficulty: 'Medium'
 	}
 ];
